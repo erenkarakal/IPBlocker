@@ -19,4 +19,4 @@ __This plugin was made and tested in Paper 1.21.10!__
 | `/ipblocker unblock <ip>`    | Unblocks an IP    |
 | `/ipblocker list <page = 1>` | Lists blocked IPs |
 
-All command require the `ipblocker.admin` permission.
+All commands require the `ipblocker.admin` permission.
