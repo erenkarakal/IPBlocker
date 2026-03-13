@@ -15,8 +15,8 @@ __This plugin was made and tested in Paper 1.21.10!__
 # Commands
 | Command                      | Description       |
 |------------------------------|-------------------|
-| ` /ipblocker block  <ip> `   | Blocks an IP      |
-| ` /ipblocker unblock  <ip> ` | Unblocks an IP    |
+| `/ipblocker block <ip>`      | Blocks an IP      |
+| `/ipblocker unblock <ip>`    | Unblocks an IP    |
 | `/ipblocker list <page = 1>` | Lists blocked IPs |
 
 All command require the `ipblocker.admin` permission.
