@@ -34,5 +34,12 @@ bukkitPluginYaml {
     main = "me.eren.ipblocker.IPBlocker"
     load = BukkitPluginYaml.PluginLoadOrder.STARTUP
     authors.add("karakulak")
+    commands {
+        register("ipblocker") {
+            description = "Manage blocked IP addresses."
+            usage = "/ipblocker <block|unblock|list>"
+            permission = "ipblocker.admin"
+        }
+    }
     apiVersion = "1.21.10"
 }
