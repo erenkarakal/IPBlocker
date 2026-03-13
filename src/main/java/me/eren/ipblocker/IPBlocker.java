@@ -15,30 +15,30 @@ import java.util.Set;
 
 public final class IPBlocker extends JavaPlugin {
 
-	private final Set<String> blockedIps = new HashSet<>();
+    private final Set<String> blockedIps = new HashSet<>();
 
     @Override
     public void onEnable() {
-		saveDefaultConfig();
-		blockedIps.addAll(getConfig().getStringList("blocked-ips"));
-		getLogger().info("Loaded " + blockedIps.size() + " blocked IPs");
+        saveDefaultConfig();
+        blockedIps.addAll(getConfig().getStringList("blocked-ips"));
+        getLogger().info("Loaded " + blockedIps.size() + " blocked IPs");
 
-		PluginCommand pluginCommand = getCommand("ipblocker");
-		assert pluginCommand != null : "The build is broken.";
+        PluginCommand pluginCommand = getCommand("ipblocker");
+        assert pluginCommand != null : "The build is broken.";
 
-		IPBlockerCommand ipBlockerCommand = new IPBlockerCommand(blockedIps);
-		pluginCommand.setExecutor(ipBlockerCommand);
-		pluginCommand.setTabCompleter(ipBlockerCommand);
+        IPBlockerCommand ipBlockerCommand = new IPBlockerCommand(blockedIps);
+        pluginCommand.setExecutor(ipBlockerCommand);
+        pluginCommand.setTabCompleter(ipBlockerCommand);
 
         injectIpBlocker(blockedIps);
     }
 
-	@Override
-	public void onDisable() {
-		getConfig().set("blocked-ips", List.copyOf(blockedIps));
-		saveConfig();
-		getLogger().info("Saved " + blockedIps.size() + " blocked IPs.");
-	}
+    @Override
+    public void onDisable() {
+        getConfig().set("blocked-ips", List.copyOf(blockedIps));
+        saveConfig();
+        getLogger().info("Saved " + blockedIps.size() + " blocked IPs.");
+    }
 
     public void injectIpBlocker(Set<String> blockedIps) {
         DedicatedServer nms = ((CraftServer) Bukkit.getServer()).getHandle().getServer();
